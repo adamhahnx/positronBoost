@@ -1,0 +1,20 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class scroll : MonoBehaviour {
+
+    Rigidbody2D rb;
+
+    void Start()
+    {
+        rb = GetComponent<Rigidbody2D>();
+        rb.AddForce(new Vector2(-(40 + int.Parse(GameObject.Find("score").GetComponent<UnityEngine.UI.Text>().text)), 0), ForceMode2D.Force);
+    }
+
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        //Time.timeScale = 0f;
+        Application.LoadLevel(Application.loadedLevel);
+    }
+}
