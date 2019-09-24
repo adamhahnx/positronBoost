@@ -14,6 +14,10 @@ public class scroll : MonoBehaviour {
 
     void OnCollisionEnter2D(Collision2D col)
     {
+    	if(col.gameObject.name == gameObject.name)
+    	{
+    	    return;
+    	}
         rb.mass = 0.2f;
         Invoke("GameOver", 1.5f);
         AudioSource aso = GameObject.Find("music").GetComponent<AudioSource>();

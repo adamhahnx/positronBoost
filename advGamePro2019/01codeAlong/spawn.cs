@@ -16,22 +16,24 @@ public class spawn : MonoBehaviour {
 	void Do ()
     {
         float vert = Random.Range(-4.0f, 4.0f);
-        for(int i = 0; i < 20; i++)
-        {
-            if ((i - 10) == 0 || (i - 10) == 1)
-            {
-                continue;
-            }
-            allBlocks.Add(Instantiate(block, new Vector2(15, vert + (i - 10)), Quaternion.identity));
-        }
 
-        if(allBlocks.Count > 60)
+        for (int i = 0; i < 20; i++)
         {
-            for(int i = 17; i > -1; i--)
+            if (i > 10)
+            {
+                 allBlocks.Add(Instantiate(block, new Vector2(18, vert + (i - 10)), Quaternion.identity));
+                 continue;
+            }
+            allBlocks.Add(Instantiate(block, new Vector2(18, vert + (i - 12)), Quaternion.identity));
+        }
+        
+        if (allBlocks.Count > 60)
+        {
+            for (int i = 20; i > -1; i--)
             {
                 Destroy(allBlocks[i]);
             }
-            for (int i = 17; i > -1; i--)
+            for (int i = 20; i > -1; i--)
             {
                 allBlocks.RemoveAt(i);
             }
